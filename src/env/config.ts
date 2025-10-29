@@ -41,8 +41,18 @@ function isValidEnv(env: string): env is AllowedEnvKeys {
 export function checkEnv(): AllowedEnvKeys {
   const currentEnv = process.env.CURRENT_ENV;
 
-  if (!currentEnv || !isValidEnv(currentEnv)) {
-    throw new Error("Verifique os .env* e os valores em src/env/configs.ts");
+  if (!currentEnv) {
+    console.warn(
+      "⚠️ CURRENT_ENV não definido — usando ambiente padrão: development"
+    );
+    return "development";
+  }
+
+  if (!isValidEnv(currentEnv)) {
+    console.warn(
+      `⚠️ CURRENT_ENV inválido (${currentEnv}) — usando ambiente padrão: development`
+    );
+    return "development";
   }
 
   return currentEnv;
@@ -58,3 +68,4 @@ export function getEnv<C extends keyof ConfigsByEnv>(key: C) {
   const value = envConfigs[currentEnv][key];
   return value;
 }
+console.log("Loaded ENV:", process.env.NODE_ENV);
