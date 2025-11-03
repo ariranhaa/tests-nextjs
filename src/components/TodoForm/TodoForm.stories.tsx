@@ -1,15 +1,15 @@
-import { CreateTodoAction } from "@/core/todo/actions/todo.action.types";
-import { TodoForm } from ".";
-import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import { todoActionStoryMock } from "@/core/__tests__/mocks/todo-action-story";
+import { CreateTodoAction } from '@/core/todo/actions/todo.action.types';
+import { TodoForm } from '.';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import { todoActionStoryMock } from '@/core/__tests__/mocks/todo-action-story';
 
 const meta: Meta<typeof TodoForm> = {
-  title: "Components/Forms/TodoForm",
+  title: 'Components/Forms/TodoForm',
   component: TodoForm,
   decorators: [
-    (Story) => (
-      <div className="max-w-screen-md mx-auto p-12">
+    Story => (
+      <div className='max-w-screen-md mx-auto p-12'>
         <Story />
       </div>
     ),

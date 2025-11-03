@@ -1,16 +1,16 @@
-import React from "react";
-import type { Preview } from "@storybook/nextjs";
+import React from 'react';
+import type { Preview } from '@storybook/nextjs';
 
-import "../src/app/globals.css";
-import "./storybook.css";
+import '../src/app/globals.css';
+import './storybook.css';
 
 const preview: Preview = {
   parameters: {
     backgrounds: {
       options: {
-        light: // { name: 'dark', value: '#000000' },
-        { name: "light", value: "ffffff" }
-      }
+        // { name: 'dark', value: '#000000' },
+        light: { name: 'light', value: 'ffffff' },
+      },
     },
     controls: {
       matchers: {
@@ -20,13 +20,13 @@ const preview: Preview = {
     },
   },
 
-  decorators: [(Story) => <Story />],
+  decorators: [Story => <Story />],
 
   initialGlobals: {
     backgrounds: {
-      value: "light"
-    }
-  }
+      value: 'light',
+    },
+  },
 };
 
 export default preview;

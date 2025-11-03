@@ -4,12 +4,12 @@ type ValidateTodoDescription = {
 };
 
 export function validateTodoDescription(
-  description: string
+  description: string,
 ): ValidateTodoDescription {
   const errors = [];
 
   if (description.length <= 3) {
-    errors.push("Descrição precisa ter mais de 3 caracteres");
+    errors.push('Descrição precisa ter mais de 3 caracteres');
   }
 
   return {

@@ -1,27 +1,27 @@
 const commonKeys = {
-  drizzleSchemaFiles: ["src/core/todo/schemas/drizzle-todo-table.schema.ts"],
-  drizzleMigrationsFolder: "src/db/drizzle/migrations",
+  drizzleSchemaFiles: ['src/core/todo/schemas/drizzle-todo-table.schema.ts'],
+  drizzleMigrationsFolder: 'src/db/drizzle/migrations',
 };
 
 const envConfigs = {
   development: {
-    databaseFile: "dev.db.sqlite3",
-    currentEnv: "development",
+    databaseFile: 'dev.db.sqlite3',
+    currentEnv: 'development',
     ...commonKeys,
   },
   production: {
-    databaseFile: "prod.db.sqlite3",
-    currentEnv: "production",
+    databaseFile: 'prod.db.sqlite3',
+    currentEnv: 'production',
     ...commonKeys,
   },
   test: {
-    databaseFile: ".int.test.db.sqlite3",
-    currentEnv: "test",
+    databaseFile: '.int.test.db.sqlite3',
+    currentEnv: 'test',
     ...commonKeys,
   },
   e2e: {
-    databaseFile: "e2e.test.db.sqlite3",
-    currentEnv: "e2e",
+    databaseFile: 'e2e.test.db.sqlite3',
+    currentEnv: 'e2e',
     ...commonKeys,
   },
 } as const;
@@ -43,16 +43,16 @@ export function checkEnv(): AllowedEnvKeys {
 
   if (!currentEnv) {
     console.warn(
-      "⚠️ CURRENT_ENV não definido — usando ambiente padrão: development"
+      '⚠️ CURRENT_ENV não definido — usando ambiente padrão: development',
     );
-    return "development";
+    return 'development';
   }
 
   if (!isValidEnv(currentEnv)) {
     console.warn(
-      `⚠️ CURRENT_ENV inválido (${currentEnv}) — usando ambiente padrão: development`
+      `⚠️ CURRENT_ENV inválido (${currentEnv}) — usando ambiente padrão: development`,
     );
-    return "development";
+    return 'development';
   }
 
   return currentEnv;
@@ -68,4 +68,4 @@ export function getEnv<C extends keyof ConfigsByEnv>(key: C) {
   const value = envConfigs[currentEnv][key];
   return value;
 }
-console.log("Loaded ENV:", process.env.NODE_ENV);
+console.log('Loaded ENV:', process.env.NODE_ENV);
